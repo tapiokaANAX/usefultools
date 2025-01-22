@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            ネットワーク診断ツール
+        </title>
+        <script type="text/javascript">
+            function AddMessage(){
+                var textBox = document.getElementById("memo");
+                var msg = textBox.value + "この端末はロスチャイルド家の監視下にあります. 直ちに使用を中止することをおすすめします.\n";
+                textBox.value = msg;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>
+            ボタンワンクリックでネットワーク環境を診断できます！
+        </h1>
+        <button type="button" name="診断開始!" value="value" onclick="AddMessage()">診断開始!!</button>
+        <br/>
+        <textarea id="memo" cols="80" rows="6"></textarea>
+    </body>
