@@ -24,11 +24,16 @@ let count = 0;
 const timer = document.getElementById('timer');
 let TIME = 30;
 
+const countdown = setInterval(function(){
+    timer.textContent = '制限時間:'+ --TIME + '秒';
+    if(TIME <=0) finish();
+}, 1000);
+
 
 form.btn.addEventListener('click', function (e)){
     if(!state) return;
 
-    if (form.input.value === subject.answer) {
+    if (form.input.value === subject.textContent) {
         count++;
         subject.textContent = '正解!!';
         setTimeout(function () { init() }, 1000);
@@ -39,23 +44,18 @@ form.btn.addEventListener('click', function (e)){
     }
 }
 
+init();
+
 function init() {
     const rnd = Math.floor(Math.random() * textList.length);
 
     const pp = rnd;
     subject.textContent = textList[pp];
-    subject.answer = answerList[pp];
+    //subject.answer = answerList[pp];
     form.input.value = '';
     form.input.focus();
 }
 
-init();
-
-
-const countdown = setInterval(function(){
-    timer.textContent = '制限時間:'+ --TIME + '秒';
-    if(TIME <=0) finish();
-}, 1000);
 
 function finish(){
     clearInterval(countdown);
