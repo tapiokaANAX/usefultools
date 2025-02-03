@@ -5,11 +5,12 @@
 
     <body>
         
-        
+        <h1 id="subject"></h1>
         <p>ひらがなで入力してください。エンターボタンで提出できます</p>
-        <p id="subject"></p>
-        <input type="text" onsubmit="return false" size="40">
-        <button type="button"> 送信 </button>
+        <form name="typing">
+            <input type="text" onsubmit="return false" size="40">
+            <input name="btn" type="submit" value="送信"/>
+        </form>
         <p id="timer"></p>
 
         <script src="typing.js"></script>
