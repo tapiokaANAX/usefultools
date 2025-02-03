@@ -19,21 +19,12 @@ const answerList = [
 let state = true;
 
 const subject = document.getElementById('subject');
-
-
-
-function init() {
-    const rnd = Math.floor(Math.random() * textList.length);
-
-    const pp = rnd;
-    subject.textContent = textList[pp];
-    subject.answer = answerList[pp];
-    form.input.value = '';
-    form.input.focus();
-}
-
 const form = document.forms.typing;
 let count = 0;
+const timer = document.getElementById('timer');
+let TIME = 30;
+
+
 form.btn.addEventListener('click', function (e)){
     if(!state) return;
 
@@ -48,8 +39,18 @@ form.btn.addEventListener('click', function (e)){
     }
 }
 
-const timer = document.getElementById('timer');
-let TIME = 30;
+function init() {
+    const rnd = Math.floor(Math.random() * textList.length);
+
+    const pp = rnd;
+    subject.textContent = textList[pp];
+    subject.answer = answerList[pp];
+    form.input.value = '';
+    form.input.focus();
+}
+
+init();
+
 
 const countdown = setInterval(function(){
     timer.textContent = '制限時間:'+ --TIME + '秒';
